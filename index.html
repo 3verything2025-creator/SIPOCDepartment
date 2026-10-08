@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026 Process Flow – Compliance, IT, Supply Chain &amp; Fleet</title>
+<meta name="description" content="2026 process flows for the Compliance, IT, Supply Chain and Fleet departments.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23c7000b'/%3E%3Cpath d='M9 16h14M17 10l6 6-6 6' stroke='%23fff' stroke-width='3' fill='none'/%3E%3C/svg%3E">
+<style>
+:root{
+  --red:#c7000b; --red-dark:#a00009; --red-tint:#fdecee;
+  --ink:#000; --text:#191919; --muted:#666; --soft:#999;
+  --line:#e5e5e5; --bg:#f5f5f5; --white:#fff;
+  --radius:8px; --max:1280px;
+  --font:"HarmonyOS Sans","HONOR Sans","Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:128px}
+body{font-family:var(--font);color:var(--text);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+ul,ol{padding-left:1.15em}
+li{margin:.15em 0}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+@media(max-width:640px){.wrap{padding:0 16px}}
+:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+
+/* ---------- header ---------- */
+.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:600;font-size:17px;white-space:nowrap}
+.brand i{width:30px;height:30px;border-radius:7px;background:var(--red);display:grid;place-items:center}
+.brand i svg{width:18px;height:18px}
+.brand small{font-weight:400;color:var(--muted);font-size:13px;padding-left:12px;border-left:1px solid var(--line)}
+nav.main{display:flex;gap:4px;height:100%}
+nav.main a{display:flex;align-items:center;padding:0 16px;font-size:15px;color:var(--text);position:relative;transition:color .2s}
+nav.main a::after{content:"";position:absolute;left:16px;right:16px;bottom:0;height:3px;background:var(--red);transform:scaleX(0);transition:transform .25s}
+nav.main a:hover,nav.main a.on{color:var(--red)}
+nav.main a:hover::after,nav.main a.on::after{transform:scaleX(1)}
+.burger{display:none;width:44px;height:44px;border:0;background:none;cursor:pointer;border-radius:50%}
+.burger span,.burger span::before,.burger span::after{display:block;width:20px;height:2px;background:var(--text);position:relative;margin:auto;transition:.2s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+@media(max-width:860px){
+  .brand small{display:none}
+  .burger{display:block}
+  nav.main{position:fixed;inset:64px 0 auto 0;background:#fff;flex-direction:column;height:auto;padding:8px 16px 20px;border-bottom:1px solid var(--line);box-shadow:0 12px 24px rgba(0,0,0,.08);transform:translateY(-130%);transition:transform .3s;gap:0}
+  nav.main.open{transform:none}
+  nav.main a{padding:16px 0;border-bottom:1px solid var(--line)}
+  nav.main a::after{display:none}
+}
+
+/* ---------- hero ---------- */
+.hero{background:#000;color:#fff;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(60% 90% at 85% 10%,rgba(199,0,11,.55),transparent 60%),
+  radial-gradient(40% 60% at 10% 100%,rgba(199,0,11,.25),transparent 70%)}
+.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:56px 56px;mask-image:linear-gradient(180deg,#000 30%,transparent)}
+.hero .wrap{position:relative;z-index:1;padding-top:96px;padding-bottom:72px}
+.eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);font-weight:600}
+.hero .eyebrow{color:#ff5a63}
+.hero h1{font-size:clamp(36px,6vw,72px);line-height:1.05;font-weight:300;letter-spacing:-.02em;margin:16px 0 20px;max-width:15ch}
+.hero h1 b{font-weight:600}
+.hero p.lead{font-size:clamp(16px,1.6vw,20px);color:rgba(255,255,255,.72);max-width:60ch}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:999px;font-size:15px;font-weight:500;border:1px solid transparent;cursor:pointer;transition:.2s;font-family:inherit}
+.btn.red{background:var(--red);color:#fff}.btn.red:hover{background:var(--red-dark)}
+.btn.ghost{border-color:rgba(255,255,255,.4);color:#fff}.btn.ghost:hover{background:#fff;color:#000!important}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.14);margin-top:64px;border-top:1px solid rgba(255,255,255,.14)}
+.stats div{background:#000;padding:24px 24px 0 0}
+.stats div:not(:first-child){padding-left:24px}
+.stats b{display:block;font-size:clamp(32px,4vw,52px);font-weight:300;line-height:1}
+.stats span{display:block;margin-top:8px;font-size:14px;color:rgba(255,255,255,.6)}
+@media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}.stats div{padding:20px 12px 0 0!important}.hero .wrap{padding-top:64px}}
+
+/* ---------- department cards ---------- */
+.band{padding:80px 0}.band.grey{background:var(--bg)}
+@media(max-width:640px){.band{padding:56px 0}}
+.sec-head{margin-bottom:40px;max-width:760px}
+.sec-head h2{font-size:clamp(28px,3.6vw,44px);font-weight:300;letter-spacing:-.01em;line-height:1.15;margin:10px 0 14px}
+.sec-head h2 b{font-weight:600}
+.sec-head p{color:var(--muted);font-size:17px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media(max-width:1020px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.cards{grid-template-columns:1fr}}
+.card{background:#fff;border-radius:var(--radius);padding:32px 28px;display:flex;flex-direction:column;min-height:300px;border:1px solid var(--line);position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.card::before{content:"";position:absolute;left:0;top:0;height:4px;width:0;background:var(--red);transition:width .35s}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.1)}
+.card:hover::before{width:100%}
+.card .no{font-size:14px;color:var(--soft);letter-spacing:.1em}
+.card h3{font-size:26px;font-weight:500;margin:16px 0 10px}
+.card p{color:var(--muted);font-size:15px;flex:1}
+.card ul{list-style:none;padding:0;margin:16px 0 24px;font-size:14px;color:var(--text)}
+.card ul li{padding:6px 0;border-top:1px solid var(--line)}
+.more{display:inline-flex;align-items:center;gap:8px;color:var(--red);font-weight:500;font-size:15px}
+.more::after{content:"→";transition:transform .2s}
+.card:hover .more::after{transform:translateX(6px)}
+
+/* ---------- department sections ---------- */
+.dept-head{display:flex;gap:32px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;margin-bottom:32px}
+.dept-head .sec-head{margin:0}
+.dept-no{font-size:clamp(64px,9vw,120px);font-weight:200;line-height:.8;color:var(--red);opacity:.9}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.pill{padding:6px 14px;border:1px solid var(--line);border-radius:999px;font-size:13px;background:#fff;color:var(--text);transition:.2s}
+.pill:hover{border-color:var(--red);color:var(--red)}
+.basis{background:#fff;border-left:4px solid var(--red);padding:14px 18px;font-size:14px;color:var(--muted);margin-bottom:28px;border-radius:0 var(--radius) var(--radius) 0}
+.grey .basis{background:#fff}
+
+details.blk{background:#fff;border:1px solid var(--line);border-radius:var(--radius);margin-bottom:16px;overflow:hidden}
+.grey details.blk{border-color:transparent}
+details.blk>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:20px 24px;font-size:19px;font-weight:500;user-select:none}
+details.blk>summary::-webkit-details-marker{display:none}
+details.blk>summary .tag{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);border:1px solid var(--red);border-radius:4px;padding:2px 8px;font-weight:600}
+details.blk>summary::after{content:"";margin-left:auto;width:10px;height:10px;border-right:2px solid var(--text);border-bottom:2px solid var(--text);transform:rotate(45deg);transition:transform .25s;flex:none;margin-top:-4px}
+details.blk[open]>summary::after{transform:rotate(-135deg);margin-top:4px;border-color:var(--red)}
+details.blk>summary:hover{color:var(--red)}
+.blk-body{padding:4px 24px 28px}
+@media(max-width:640px){.blk-body{padding:4px 16px 24px}details.blk>summary{padding:16px;font-size:17px}}
+.blk-body>.note{color:var(--muted);font-size:14px;margin:0 0 16px}
+
+/* ---------- SIPOC ---------- */
+.sipoc{display:grid;gap:12px}
+.sipoc-head,.sipoc-row{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+.sipoc-row.named{grid-template-columns:150px repeat(5,1fr)}
+.sipoc-head.named{grid-template-columns:150px repeat(5,1fr)}
+.sipoc-head div{background:#000;color:#fff;padding:12px 16px;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.sipoc-head div:first-child{border-radius:6px 0 0 6px}.sipoc-head div:last-child{border-radius:0 6px 6px 0}
+.sipoc-head b{color:#ff5a63;margin-right:6px;font-size:15px}
+.sipoc-row{border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.sipoc-row>div{padding:16px;font-size:14px;border-right:1px solid var(--line)}
+.sipoc-row>div:last-child{border-right:0}
+.sipoc-row>.nm{background:var(--bg);font-weight:600;color:var(--text)}
+.sipoc-row>.nm em{display:block;color:var(--red);font-style:normal;font-size:20px;font-weight:300;margin-bottom:2px}
+.sipoc-row h5{display:none;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.sipoc-row ul{list-style:none;padding:0}
+.sipoc-row ul li{position:relative;padding-left:14px}
+.sipoc-row ul li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--red)}
+.sipoc-row ol{padding-left:1.4em}
+.sipoc-row ol li::marker{color:var(--red);font-weight:600}
+@media(max-width:1020px){
+  .sipoc-head{display:none}
+  .sipoc-row,.sipoc-row.named{grid-template-columns:1fr 1fr}
+  .sipoc-row>div{border-bottom:1px solid var(--line)}
+  .sipoc-row>div:nth-child(even){border-right:0}
+  .sipoc-row h5{display:block}
+  .sipoc-row>.nm{grid-column:1/-1;border-right:0}
+}
+@media(max-width:640px){
+  .sipoc-row,.sipoc-row.named{grid-template-columns:1fr}
+  .sipoc-row>div{border-right:0}
+}
+
+/* ---------- flows ---------- */
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-bottom:20px}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend i{display:inline-block;width:14px;height:14px}
+.legend .l-step{background:#fff;border:1.5px solid var(--text);border-radius:3px}
+.legend .l-dec{background:var(--red);transform:rotate(45deg) scale(.8)}
+.legend .l-end{background:#000;border-radius:999px}
+.flow{list-style:none;padding:0;display:flex;flex-wrap:wrap;align-items:flex-start;gap:20px 36px}
+.blk-body{overflow-wrap:anywhere}
+.node{position:relative;flex:1 1 230px;max-width:300px;background:#fff;border:1.5px solid var(--text);border-radius:6px;padding:14px 16px 14px 16px;font-size:14px;margin:0}
+.node:not(:last-child)::after{content:"";position:absolute;right:-27px;top:50%;width:18px;height:18px;margin-top:-9px;border-top:2px solid var(--soft);border-right:2px solid var(--soft);transform:rotate(45deg) scale(.6)}
+.node .who{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:4px}
+.node .n{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 6px;border-radius:11px;background:var(--text);color:#fff;font-size:12px;font-weight:600;margin-right:8px;vertical-align:1px}
+.node.dec{background:var(--red-tint);border-color:var(--red);border-left-width:6px}
+.node.dec .n{background:var(--red)}
+.node.dec .x{font-weight:600}
+.br{display:grid;gap:6px;margin-top:10px;font-size:13px}
+.br div{display:flex;gap:8px;align-items:flex-start;background:#fff;border-radius:4px;padding:6px 8px;border:1px solid rgba(199,0,11,.2)}
+.br b{flex:none;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:3px;color:#fff}
+.br .y b{background:#1f7a3d}.br .no b{background:var(--red)}
+.node.end{background:#000;color:#fff;border-color:#000;border-radius:999px;padding-left:20px;padding-right:20px}
+.node.end .who{color:#ff5a63}.node.end .n{background:#fff;color:#000}
+@media(max-width:640px){
+  .flow{flex-direction:column;align-items:stretch;gap:30px}
+  .node{max-width:none;flex-basis:auto}
+  .node:not(:last-child)::after{right:auto;left:50%;top:auto;bottom:-25px;margin:0 0 0 -9px;transform:rotate(135deg) scale(.6)}
+}
+
+/* ---------- tables ---------- */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:6px;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:14px}
+th{background:#000;color:#fff;text-align:left;padding:12px 14px;font-weight:500;font-size:13px;letter-spacing:.04em;vertical-align:bottom}
+th small{display:block;color:#ff8a91;font-weight:400;font-size:11px;letter-spacing:0;margin-top:2px}
+td{padding:12px 14px;border-top:1px solid var(--line);vertical-align:top}
+td:first-child{font-weight:600;background:var(--bg);white-space:nowrap}
+.tbl.wide table{min-width:1100px}
+tbody tr:hover td{background:var(--red-tint)}
+tbody tr:hover td:first-child{background:var(--red-tint)}
+td.hl{color:var(--red);font-weight:600}
+
+/* ---------- phases ---------- */
+.phases{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(150px,1fr);gap:0;overflow-x:auto;padding-bottom:6px}
+.phase{padding:18px 16px 18px 0;border-top:3px solid var(--line);position:relative;min-width:150px}
+.phase::before{content:"";position:absolute;left:0;top:-8px;width:13px;height:13px;border-radius:50%;background:#fff;border:3px solid var(--red)}
+.phase b{display:block;font-size:22px;font-weight:300;color:var(--red);margin-top:10px}
+.phase strong{display:block;font-size:15px;font-weight:600}
+.phase span{display:block;font-size:12.5px;color:var(--muted);margin-top:4px}
+.phase.grp{border-top-color:var(--red)}
+
+/* ---------- rules ---------- */
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.rules{grid-template-columns:1fr}}
+.rule{border-radius:var(--radius);padding:24px;border:1px solid var(--line)}
+.rule h4{font-size:17px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.rule h4::before{content:"";width:12px;height:12px;border-radius:50%;background:#1f7a3d}
+.rule.bad{background:var(--red-tint);border-color:rgba(199,0,11,.25)}
+.rule.bad h4::before{background:var(--red)}
+.rule ul{font-size:14.5px}
+.callout{margin-top:16px;padding:14px 18px;background:#000;color:#fff;border-radius:var(--radius);font-size:14.5px}
+.callout b{color:#ff5a63}
+
+/* ---------- footer ---------- */
+footer{background:#000;color:rgba(255,255,255,.7);font-size:14px;padding:48px 0}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer b{color:#fff;font-weight:500}
+.totop{position:fixed;right:20px;bottom:20px;width:46px;height:46px;border-radius:50%;background:var(--red);color:#fff;border:0;cursor:pointer;font-size:20px;opacity:0;pointer-events:none;transition:.25s;box-shadow:0 8px 20px rgba(199,0,11,.35)}
+.totop.show{opacity:1;pointer-events:auto}
+.totop:hover{background:var(--red-dark)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+@media print{.top,.totop,.hero .btns{display:none}details.blk>*{display:block}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Back to top">
+      <i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></i>
+      Process Flow 2026 <small>SCI</small>
+    </a>
+    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+    <nav class="main" id="nav">
+      <a href="#compliance">Compliance</a>
+      <a href="#it">IT</a>
+      <a href="#supply">Supply Chain</a>
+      <a href="#fleet">Fleet</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">2026 Process Flow</div>
+    <h1>Four departments. <b>One clear flow.</b></h1>
+    <p class="lead">SIPOCs, step-by-step flows, approval rules and responsibility matrices for Compliance, IT, Supply Chain and Fleet, in a single page.</p>
+    <div class="btns">
+      <a class="btn red" href="#departments">Explore departments</a>
+      <button class="btn ghost" id="expand">Expand all</button>
+    </div>
+    <div class="stats" id="stats"></div>
+  </div>
+</section>
+
+<section class="band grey" id="departments">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Departments</div>
+      <h2>Choose a <b>process area</b></h2>
+      <p>Each department opens into its SIPOC overview, process-level detail, and flow diagrams.</p>
+    </div>
+    <div class="cards" id="cards"></div>
+  </div>
+</section>
+
+<main id="depts"></main>
+
+<footer>
+  <div class="wrap">
+    <div><b>Process Flow 2026</b><br>Compliance · IT · Supply Chain · Fleet</div>
+    <div>Source: 2026 Process Flow (draw.io export).<br>Single self-contained page, no external dependencies.</div>
+  </div>
+</footer>
+<button class="totop" aria-label="Back to top" id="totop">↑</button>
+
+<script>
+"use strict";
+/* ============================ DATA ============================ */
+const DEPTS=[
+{id:"compliance",no:"01",name:"Compliance",
+ tagline:"Registration, stakeholder requests, price list controls and data protection.",
+ intro:"Regulated product registration, external stakeholder requests, consumable price list updates and the Data Protection Officer employee lifecycle.",
+ blocks:[
+ {k:"flow",title:"Chemical product registration",tag:"Flow",
+  note:"Swimlanes: Supplier, Hardy Henry, Vector Biology, MinOf AgroIndustry, DCCB, RI UK, Compliance Manager and Compliance Secretary.",
+  nodes:[
+   {o:"Hardy Henry",x:"Request for product import"},
+   {o:"Supplier",x:"Contact supplier for list of supporting documents"},
+   {d:1,x:"Is the product a chemical?",y:"Continue to pesticide check",n:"DCCB: request for product import"},
+   {d:1,x:"Is it a pesticide?",y:"Continue to vector check",n:"DCCB: request for product import"},
+   {d:1,x:"Is it a vector product?",y:"Vector Biology evaluates efficacy",n:"Continue to label submission"},
+   {o:"Vector Biology",x:"Evaluate efficacy test reports from supplier"},
+   {o:"MinOf AgroIndustry",x:"Submit WHO label format for the product to be imported"},
+   {d:1,x:"Label approved?",y:"Continue to technical dossier",n:"Label approval pending: resubmit"},
+   {o:"Hardy Henry",x:"Fill in technical dossier"},
+   {d:1,x:"Dossier approved?",y:"Product registration obtained",n:"Product registration not obtained: revise dossier"},
+   {o:"Compliance Secretary",x:"Update list of chemicals including dosage and supplier vs the price list"},
+   {o:"Compliance Manager",x:"Confirm listing and dosage"},
+   {d:1,x:"Listing compliant?",y:"Approved Product Listing",n:"Update the list again"},
+   {o:"RI UK",x:"Approved product list sent to RI UK counterpart on request",end:1}
+  ]},
+ {k:"sipoc",title:"External stakeholders request process",tag:"SIPOC",
+  rows:[{nm:"Overview",
+   S:["Requesting client (embassy, hotel QA, food-safety buyer)","Internal requester (sales, BU manager)","Product manufacturer / distributor (SDS, TDS, label)","Service and equipment providers (telecom, IT)","Law, standard or scheme owner (NDAA, FAR, ISO, HACCP)","Environmental Protection Office"],
+   I:["Request, form or questionnaire with deadline","Legal or standard text and definitions","Equipment, product and supplier inventory","Company policies, certificates, training records","Vendor statements and technical data","Authorised signatory"],
+   P:["Receive, log and acknowledge","Triage: type, risk, owner, due date","Gather and verify evidence","Close gaps or seek a waiver","Draft, review and sign","Submit and handle follow-up queries","Record, monitor and renew"],ol:1,
+   O:["Signed declaration or completed questionnaire","Technical reply or bulletin","Evidence pack (certificates, SDS, inventory extract)","Corrective action record (e.g. equipment replaced)","Updated compliance register","Renewal reminder"],
+   C:["Requesting client and its procurement team","Internal BU managers who need the order released","Senior management / signatory","Auditors and certification bodies","Regulators"]}]},
+ {k:"flow",title:"Compliance request from external stakeholders",tag:"Flow",
+  nodes:[
+   {o:"Start",x:"Request received",start:1},
+   {o:"Step 1",x:"Log and acknowledge"},
+   {o:"Step 2",x:"Triage: type, risk, owner, due date"},
+   {o:"Step 3",x:"Gather and verify evidence"},
+   {d:1,x:"Compliant as is?",y:"Draft response",n:"Fix gap or request waiver, then draft response"},
+   {o:"Step 5",x:"Draft response"},
+   {d:1,x:"Review and sign-off passed?",y:"Submit to requester",n:"Return to draft"},
+   {o:"Step 6",x:"Submit to requester"},
+   {d:1,x:"Requester accepts?",y:"Accepted: record in register",n:"Query raised: return to evidence step"},
+   {o:"Step 7",x:"Record in register and set renewal"},
+   {o:"Loop",x:"Renewal date or new request",end:1}
+  ]},
+ {k:"flow",title:"Price list update of consumables",tag:"Flow",
+  note:"Lanes: BU Manager / MD, Supply Chain (Storekeeper and Compliance Secretary), Technical team, Finance team.",
+  nodes:[
+   {o:"Supply Chain",x:"Product receipt in store"},
+   {d:1,x:"Existing product?",y:"Go to invoice consolidation",n:"Request creation of stock code"},
+   {o:"Technical team",x:"Initial UOM definition by store team / operations"},
+   {o:"Finance",x:"Creation of stock code for the concerned product"},
+   {o:"Finance",x:"Product costing as per created or defined UOM"},
+   {o:"Finance",x:"Update unit cost price on system"},
+   {o:"Supply Chain",x:"Invoice consolidation from service providers"},
+   {o:"Supply Chain",x:"Due diligence verification: UOM, local price"},
+   {o:"Supply Chain",x:"Review price and apply margin where necessary"},
+   {o:"BU Manager / MD",x:"Sent for approval to Managing Director / BU Manager"},
+   {d:1,x:"Approved?",y:"Update unit selling price",n:"Return to price review"},
+   {o:"Supply Chain",x:"Update unit selling price on hardcopy and system",end:1}
+  ]},
+ {k:"basis",x:"Data Protection Officer: Data Protection (Designation, Tasks and Position of Data Protection Officers) Regulations 2026, Government Notice No. 117 of 2026. In operation 1 January 2027."},
+ {k:"sipoc",title:"Data Protection Officer: employee lifecycle",tag:"SIPOC",
+  rows:[{nm:"Overview",
+   S:["Controller / top management","HR","Line managers","IT / security","Employees (data subjects)","Data Protection Office (Commissioner)"],
+   I:["Joiner, mover and leaver notices","Staff list with roles and access","Policies and processing inventory","Incident reports and data subject requests","Training content and legal updates","Audit and inspection requests"],
+   P:["Designate and notify (P0)","Onboard new employee (P1)","Run refresher training (P2)","Monitor, audit and advise (P3)","Handle incidents and requests (P4)","Offboard leaver (P5)"],
+   O:["Designation and notification records","Training and acknowledgment register","Record of processing operations","Audit reports and corrective actions","Breach notifications and request responses","Exit checklist and retention record","Report to highest management"],
+   C:["Employees","Top management","The Office (Data Protection Commissioner)","Data subjects, including former employees","Auditors"]}]},
+ {k:"phases",title:"Employee lifecycle phases",tag:"Lifecycle",
+  items:[["P0","Designate DPO","Reg 3, 5, 6, 8"],["P1","Onboarding","Reg 4(1)(a)(iv),(ix),(x)"],["P2","Refresher training","Reg 4(1)(a)(x),(xviii)"],["P3","Monitoring and audit","Reg 4(1)(a)(iii),(v),(x),(xiv)"],["P4","Incidents and requests","Reg 4(1)(a)(ii),(vi),(viii)"],["P5","Exit","Reg 4(1)(a)(iv),(v),(x)"]]},
+ {k:"sipoc",title:"DPO SIPOC by process",tag:"SIPOC",
+  rows:[
+  {nm:"Onboarding",code:"P1",S:["HR","Line manager","IT","New employee"],I:["Joiner notice (role, start date)","Policies, confidentiality undertaking","Induction material and test"],P:["HR notifies DPO","Assess role exposure","Baseline access only","Induction and test","Sign acknowledgment","Verify, record, release access","Update processing record"],ol:1,O:["Training register entry","Signed acknowledgment","Access record","Updated processing record"],C:["New employee","Line manager","Top management"]},
+  {nm:"Refresher training",code:"P2",S:["DPO (annual plan)","Law and Office guidance","Audit and incident findings","HR staff list"],I:["Training calendar","Updated policies","Staff list with roles","Incident lessons"],P:["Set annual plan","Get staff and role changes","Update content by role","Deliver session","Assess understanding","Record; chase absentees","Report to management"],ol:1,O:["Training register","Updated materials","Escalation list","Completion report"],C:["Employees","Line managers","Top management"]},
+  {nm:"Monitoring and audit",code:"P3",S:["Business units","IT","The Office","Employees"],I:["New or changed processing","Processing inventory","Audit checklist"],P:["Unit informs DPO","Screen risk","DPIA advice if high risk","Update processing record","Internal audit","Recommend; track actions","Report to management"],ol:1,O:["DPIA advice","Updated record","Audit report","Action log"],C:["Business units","Top management","The Office"]},
+  {nm:"Incidents and requests",code:"P4",S:["Reporting employee","Data subject (incl. employee)","IT","The Office"],I:["Incident report or request","System logs","Breach and request procedures"],P:["Log","Triage: breach or request","Breach: contain, assess, notify","Request: verify, respond in time","Support Office investigation","Close; root cause; training"],ol:1,O:["Incident and request log","Notification to the Office","Response to requester","Corrective actions"],C:["Affected individuals","The Office","Top management"]},
+  {nm:"Exit",code:"P5",S:["HR","Line manager","IT","Leaving employee"],I:["Exit notice with last day","Access and asset inventory","Retention schedule"],P:["HR notifies DPO","Issue exit checklist","Hand over data","Revoke access; recover devices","Return data; confirm confidentiality","Verify checklist","Apply retention; update records"],ol:1,O:["Completed checklist","Revocation record","Retention or erasure record"],C:["HR","Top management","Former employee","The Office"]}
+  ]},
+ {k:"table",title:"Compliance matrix per stakeholder",tag:"Matrix",wide:1,
+  head:[["","" ],["P0 Designate","Reg 3, 5, 6, 8"],["P1 Onboarding","Reg 4(1)(a)(iv),(ix),(x)"],["P2 Refresher","Reg 4(1)(a)(x),(xviii)"],["P3 Monitoring","Reg 4(1)(a)(iii),(v),(x),(xiv)"],["P4 Incidents","Reg 4(1)(a)(ii),(vi),(viii)"],["P5 Exit","Reg 4(1)(a)(iv),(v),(x)"]],
+  rows:[
+  ["HR","Shortlist staff; hold qualification evidence","Notify DPO of joiner: role and start date","Provide staff and role-change list","Report changes to HR data processing","Support cases involving employee data","Notify DPO of exit; run exit checklist"],
+  ["Line manager / Employee","","Complete induction and test; sign acknowledgment and confidentiality undertaking","Attend refresher; pass assessment","Tell DPO of new or changed processing; act on advice","Report suspected breach at once, or make a request","Hand over data; return devices; confirm confidentiality"],
+  ["IT","","Baseline access first; full role access once DPO confirms","Share security incident lessons for content","Confirm security measures; implement fixes","Contain; preserve logs","Revoke access; recover devices on last day"],
+  ["DPO","Meet reg 5 criteria; accept designation; keep DPO register","Assess role exposure; verify; record; update processing record","Set plan; update content; record results; chase absentees","Screen risk; DPIA advice; update record; audit; recommend","Log; triage; assess; notify Office and data subjects; respond to requests","Verify checklist; apply retention schedule; update records"]
+  ]}
+ ]},
+
+{id:"it",no:"02",name:"IT",
+ tagline:"Equipment, support, continuity, websites and AI governance across the employee lifecycle.",
+ intro:"The IT lifecycle from onboarding, through live support, continuity, websites and AI governance, to exit.",
+ blocks:[
+ {k:"basis",x:"Basis: IT flow notes, AI Tools Usage and Security Policy (v01, effective 28/09/2026), AI Tool Security Procedure (v01) and the signed acknowledgement form."},
+ {k:"sipoc",title:"IT department SIPOC",tag:"SIPOC",
+  rows:[{nm:"Overview",
+   S:["HR and line managers (joiner and leaver notices, needs)","Employees (requests, incident reports)","IT service providers (RI MENAT, PABX, consultants, UPS, desktop / laptop, mobile)","Police station (OB for lost phones)","Privacy, legal and data-protection reviewers"],
+   I:["Joiner or leaver notice with line manager's needs","Email requests and support tickets","Police OB for a lost mobile","AI tool requests","BU or department website requests","AI policy and AI procedure"],
+   P:["P1 Onboard: provide equipment and accounts","P2 Live: support by email and ticket","P3 Live: lost mobile phone","P4 Live: first contact for IT providers","P5 Live: continuity checks and server VMs","P6 Live: project websites","P7 Live: AI tool governance","P8 Exit: take back equipment and accounts"],
+   O:["Equipment, accounts and licences issued","Resolved tickets","System deployment and monitoring","Replacement phone and OB reference","Provider fixes and changes delivered","Continuity check results","Project HTML websites","AI approvals, monitoring records","Assets returned and accounts closed"],
+   C:["Employees","Line managers, BUs and departments","Management","Auditors"]}]},
+ {k:"phases",title:"Lifecycle",tag:"Lifecycle",
+  items:[["Onboarding","P1","Equipment and accounts"],["Live","P2","Support"],["Live","P3","Lost phone"],["Live","P4","Providers"],["Live","P5","Continuity"],["Live","P6","Websites"],["Live","P7","AI governance"],["Exit","P8","Take back and close"]],itFlip:1},
+ {k:"sipoc",title:"IT management by process",tag:"SIPOC",
+  rows:[
+  {nm:"Onboarding",code:"P1",S:["HR","Line manager","New employee","IT providers (devices, SIM, PABX)"],I:["Joiner notice and line manager's needs","Stock of devices, SIMs, licences"],P:["Receive joiner notice and needs","Create AD account and email address","Issue laptop/desktop, mobile, SIM, tablet, mouse","Assign PABX phone and software licences","Connect printer","Employee signs AI policy acknowledgement if AI account needed"],ol:1,O:["Equipment and account record","Signed acknowledgement","Employee ready to work"],C:["New employee","Line manager"]},
+  {nm:"Live: support",code:"P2",S:["Employees","Line managers"],I:["Email requests","Tickets in support system"],P:["Receive request by email or ticket","Log and prioritise","Resolve, or escalate to provider","Update requester","Close ticket"],ol:1,O:["Resolved ticket","Support history"],C:["Employees","Line managers","Management"]},
+  {nm:"Live: lost mobile",code:"P3",S:["Employee","Police station"],I:["Loss report","Police OB entry"],P:["Employee reports loss to IT","Employee takes OB at police station","Employee gives OB reference to IT","Block SIM; secure accounts on device","Issue replacement phone and SIM","Update asset record"],ol:1,O:["OB reference on file","Blocked SIM","Replacement mobile"],C:["BU or department","Employees","Management","Auditors"]},
+  {nm:"Live: IT providers",code:"P4",S:["RI MENAT","PABX provider","Consultants","UPS supplier","Desktop, laptop / mobile"],I:["Fault or change need from users","Support terms"],P:["Receive need from user","IT acts as first point of contact","Follow up until resolved","Confirm with user","Keep provider contact list"],ol:1,O:["Fault fixed or change delivered","Provider contact record"],C:["HR","Line manager","Management"]},
+  {nm:"Live: continuity and servers",code:"P5",S:["Connections","Antivirus and firewall","Backup system","Server VMs"],I:["Check schedule","Backup logs and alerts"],P:["Check connections","Check antivirus and firewall","Check backups","Administer server VMs with IT admin rights","Fix issues or escalate to provider","Record result"],ol:1,O:["Check results","Corrective actions","Business continuity"],C:["Management","All users"]},
+  {nm:"Live: project websites",code:"P6",S:["Business units","Departments"],I:["Website request","Content from BU"],P:["Receive project request","Agree scope and content","Build HTML website","Review with BU","Publish"],ol:1,O:["Project HTML website"],C:["Business units","Departments","Management"]},
+  {nm:"Live: AI governance",code:"P7",S:["User requesting AI","IT Security","Privacy, legal, data-protection reviewers"],I:["AI request: service, purpose, data, integrations","AI policy and procedure","Network, endpoint, identity, DLP, SaaS logs"],P:["Request (4.1)","Security review (4.2)","Provision, no admin rights (4.3)","Configure endpoint, network, DLP controls (4.4)","Approve MCP and AI admin scripts (4.5, 4.6)","Monitor (4.7)","Respond to incidents (4.8)"],ol:1,O:["Approval record","Restricted account","MCP and script approvals","Monitoring and incident records"],C:["Employees","Management"]},
+  {nm:"Exit",code:"P8",S:["HR","Line manager","Leaving employee"],I:["Leaver notice with last day","Asset and account list"],P:["Receive leaver notice and needs","Take back PABX phone, devices, SIM, tablet, mouse","Disable AD account and email address","Recover software licences","Remove printer connection","Revoke AI account and sessions","Update asset records"],ol:1,O:["Assets returned","Accounts closed","Licences freed"],C:["Employee","Line manager","Management"]}
+  ]},
+ {k:"table",title:"Who does what across the IT lifecycle",tag:"Matrix",wide:1,
+  head:[["",""],["Onboarding","P1"],["Live: support","P2"],["Live: lost phone","P3"],["Live: IT providers","P4"],["Live: continuity, VMs, websites","P5, P6"],["Live: AI governance","P7"],["Exit","P8"]],
+  rows:[
+  ["Line manager","Sets equipment and access needs for the role","","Approves replacement","Raises needs through IT","Requests BU or department website","","Confirms what must be returned"],
+  ["Employee","Receives equipment; signs AI acknowledgement if AI account needed","Requests help by email or ticket","Reports loss; takes OB at police station; gives OB to IT","Raises needs through IT","","Requests AI tool; no MCP, plugins or agents without approval; reports incidents","Returns devices and equipment"],
+  ["IT","Issues PABX phone, laptop/desktop, mobile, SIM, tablet, mouse; AD account, email, licences, printer","Logs, resolves or escalates, updates, closes","Records OB; blocks SIM; secures accounts; replaces phone","First point of contact for RI MENAT, PABX, consultants, UPS, desktop, laptop, mobile","Checks connections, antivirus, firewall, backups; administers server VMs; builds HTML websites","Provisions without admin; configures controls; approves MCP and AI scripts; monitors; responds","Takes back phone, devices, SIM; closes AD account, email, licences, printer; revokes AI access"],
+  ["Providers / police / operator","Supply devices, SIM and PABX service","Fix escalated faults","Police issue OB; operator blocks SIM","Deliver service; fix faults","Support on escalation","","Update SIM and licence records"],
+  ["IT Security / reviewers","","","","","","Security, privacy, legal and data-protection review",""]
+  ]}
+ ]},
+
+{id:"supply",no:"03",name:"Supply Chain",
+ tagline:"Procurement, store management and delivery, end to end.",
+ intro:"SIPOC consolidating 11 procedure documents covering procurement, store management and delivery, with the end-to-end RFP to reorder flow.",
+ blocks:[
+ {k:"sipoc",title:"Supply chain department SIPOC",tag:"SIPOC",
+  rows:[{nm:"Overview",
+   S:["Requesters: BU, department and sales managers, supervisors, storekeeper","Suppliers and service providers","Operations, sales and admin (delivery emails)","Managers, Managing Director, Finance Manager","Clients (returns, hygiene trials)"],
+   I:["Request for purchase (RFP) and reorder level","Quotations, price lists, packing lists, invoices","Delivery request by email or “Veuillez livrer”","Returned equipment and unused products","Trial product requests","Procedures and approval matrix"],
+   P:["Procurement: RFP and approval; sourcing and PO; PO tracking and closure","Store management: receipt and system update; availability and reorder; write-on adjustment; returned equipment","Delivery: delivery conditions; delivery note reference and issue; retention; hygiene trials","End-to-end flow"],
+   O:["Approved POs and closed orders","Stock updated and dashboards","Delivery notes with standard reference","Write-on transactions and notes","Refurbished or discarded equipment","Trial delivered and retrieved"],
+   C:["Operations and sales teams","Technicians","Management","Finance and accounts","Clients"]}]},
+ {k:"flow",title:"RFP to reorder (end to end)",tag:"Flow",
+  note:"Lanes: Requester / BU, Approvers, Procurement (SCI), Supplier, Store team, Operations / Sales.",
+  nodes:[
+   {o:"Requester / BU",x:"RFP raised, or reorder level reached"},
+   {d:1,x:"RFP approved by line manager?",y:"Procurement starts sourcing",n:"Inform sender"},
+   {o:"Procurement (SCI)",x:"Get 2-3 quotations; test sample or demo"},
+   {o:"Approvers",x:"Sign PO; Finance notified of funds"},
+   {o:"Procurement (SCI)",x:"Send PO to supplier; track as In Progress"},
+   {o:"Supplier",x:"Deliver with packing list or invoice"},
+   {d:1,x:"Goods match packing list or invoice?",y:"Update stock in system by barcode",n:"Chase supplier"},
+   {o:"Store team",x:"Update stock in system by barcode"},
+   {o:"Approvers",x:"Approve invoice; PO moved to Closed"},
+   {o:"Operations / Sales",x:"Email approved delivery request (written approval)"},
+   {o:"Store team",x:"Pick up, issue DN, deliver; apply retention and write-on"},
+   {o:"Loop",x:"Reorder level reached: restart at step 1",end:1}
+  ]},
+ {k:"sipoc",title:"Procurement",tag:"SIPOC",
+  rows:[
+  {nm:"Request for purchase and approval",code:"PR1",S:["Requesters","Line managers","Storekeeper (reorder level)"],I:["RFP sent by form","Product or service and amount (MUR)","Approval matrix","Reorder level in system","Maintenance or vehicle repair need"],P:["Requester sends RFP to line of management","Line manager reviews it","Approved: procurement team starts","Not approved: sender informed (e.g. consumption too slow, equipment not fitting, not in budget, alternative considered)","Any other request: approval by the corresponding line of management"],ol:1,O:["Approved or declined RFP","Sender informed of non-approval"],C:["Procurement team","Requester"]},
+  {nm:"Sourcing and purchase order",code:"PR2",S:["Service providers and suppliers","HHSL team (fit check)","Finance Manager"],I:["Approved RFP","Quotations or price lists","Sample or demo"],P:["Look for 2-3 quotations; if none, ask for a price list on company header","Notify Finance Manager of fund allocation","Request sample or demo if needed; fit for HHSL team? No: look for 2nd best provider","PO with price, quantity and specification sent to BU / Dept manager for signature","Approved PO sent to supplier"],ol:1,O:["Quotations on file","Signed purchase order","PO sent to supplier"],C:["Supplier","BU or department manager","Finance"]},
+  {nm:"PO tracking and closure",code:"PR3",S:["Supplier","Storekeeper","SH, Managers and Supply Chain (notified)"],I:["PO with product confirmation","Delivery","Invoice"],P:["PO emitted; service or product confirmation field filled","Approval: No cancels the order; Yes sends approved PO to supplier","Listing in system stays In Progress","On invoice receipt: approval by managers (services) or storekeeper (goods)","Approved: Closed. Not approved: chase service provider"],ol:1,O:["Order status In Progress or Closed","Cancelled order","Chase record"],C:["Management","Supply chain","Finance"]}
+  ]},
+ {k:"table",title:"Approval matrix for requests for purchase",tag:"Matrix",
+  note:"Section 5.1; applies unless the Managing Director states otherwise.",
+  head:[["Request from",""],["Products / service",""],["Criteria (MUR)",""],["Approval",""]],
+  rows:[
+  ["Sales Manager","Tools / vehicles","-","Managing Director"],
+  ["BU Manager / Dpt Manager","Assets","-","Managing Director"],
+  ["BU Manager / Dpt Manager","Maintenance 4 wheels","-","Managing Director"],
+  ["Operations Manager(s) / Supervisors / Storekeeper","Maintenance 4 wheels","-","BU Manager / Dpt Manager"],
+  ["Storekeeper","Consumables","-","Managing Director / SCI Manager / Finance Manager"],
+  ["Operations Manager(s) / Supervisors","Tools / equipment","Below 500,000","BU Manager"],
+  ["Supervisors","Maintenance 2 wheels","-","BU Manager"]
+  ]},
+ {k:"sipoc",title:"Store management",tag:"SIPOC",
+  rows:[
+  {nm:"Receipt and system update",code:"S1",S:["Suppliers","Operations team (returns)"],I:["Delivered goods","Packing list or invoice","Local barcode nomenclature"],P:["Receive product at store","Counter-verify with packing list or invoice","Warehouse and preparation","System update via local barcode nomenclature","Surplus from supplier: write on in ABS and note stock code received in surplus"],ol:1,O:["Verified receipt","Stock updated"],C:["Store team","Operations and sales"]},
+  {nm:"Availability and reorder",code:"S2",S:["Store team","Sales team","Management","Supply Chain"],I:["Delivery notes (date, S/M, product, qty, transaction)","Annual forecast for new business","Last 5 order cycles, lead time","Stock security assessment"],P:["Dashboard 1: DN issued end of week or month (store team)","Dashboard 2: availability at end of day for PC, SB, Hyg, Kordon, General (sales, management)","Dashboard 3: availability, reorder, forecast, stock security, status OFS / RTP / STOCK (supply chain)","Reorder product; confirm ETA; receipt at step S1"],ol:1,O:["Three dashboards","Reorder decision","Lower risk of OFS"],C:["Store team","Sales and management","Supply chain"]},
+  {nm:"Stock adjustment (write-on)",code:"S3",S:["Storekeeper and assistant","Compliance Manager"],I:["Reason for adjustment","Invoice","Packing list"],P:["Log on to ABS","Inform Compliance Manager or superior","Stock module: select WriteOn","Ref: STOCK AMENDED; Notes: reason","Items: stock item code; Qty: quantity to adjust","Save, print a copy, archive"],ol:1,O:["Write-on transaction","Printed, archived copy"],C:["Accounts and accountant","Compliance Manager"]},
+  {nm:"Returned equipment, pest control",code:"S4",S:["Operations team","Customer sites (contract cancelled)"],I:["Equipment with origin noted","Return Book"],P:["Receive equipment with origin noted (operations, store)","Verify and sort in Return Book and ABS","Fit for reuse: clean, dry, paint if needed","4.1 Store refurbished equipment; deliver to technicians","4.2 Not fit: store damaged equipment; destroy through required services"],O:["Refurbished stock","Destruction record"],C:["Technicians","Accounts"]},
+  {nm:"Returned equipment, hygiene",code:"S5",S:["Hygiene operations team","Hygiene Manager","Client"],I:["Product Replacement and Return Sheet","Red, yellow, green dot","Return reasons: contract change, missed service, defective item"],P:["Store delivers new or refurbished item on admin instruction","Hygiene team records returned product on the sheet","Fit for use: green dot, write on under new stock code","Repairable: yellow dot; find provider, compare repair cost with new import, PO, pay, receive, write on","Not repairable: red dot; send for discard, inform Finance","Update value in ABS"],ol:1,O:["Updated value in ABS","Refurbished stock","Discard record"],C:["Hygiene team","Finance"]}
+  ]},
+ {k:"sipoc",title:"Delivery",tag:"SIPOC",
+  rows:[
+  {nm:"Delivery request and conditions",code:"D1",S:["Admin, sales and operations","Concerned manager","Cost allocation (Satee)"],I:["Email or “Veuillez livrer” instruction","Product Delivery Request","Written approval by email"],P:["Send Product Delivery Request by email with the concerned manager's written approval","PPEs and equipment (rider jacket, biker gloves, helmet, support caisse, caisse): copy of email to Satee with vehicle number for cost allocation","No delivery unless both conditions are met","Finance creates stock codes for support caisse and caisse"],ol:1,O:["Approved delivery instruction"],C:["Store team","Finance"]},
+  {nm:"Delivery note reference and issue",code:"D2",S:["Store team","Requester"],I:["Approved request for delivery (ARFD)","Product barcode"],P:["Store receives approved request","Pick up product; issue DN (qty, S/M)","Mail: MAIL XX_YEAR/MM/DD (XX = requester initials)","Veuillez livrer: VLXXXXXX_YEAR/MM/DD","Scan barcode at point of sale for any delivery"],ol:1,O:["Delivery note with standard reference","Stock movement"],C:["Operations","Sales","Accounts"]},
+  {nm:"Hygiene trial products",code:"D3",S:["Hygiene sales rep","Hygiene admin team leader","Service planner","Operations team"],I:["Client trial request","Email request","Product and Replacement Sheet, 3 copies"],P:["Rep creates trial; admin team leader approves or declines","Service planner instructs store; store delivers (instruction before 15:00: same day, else next day)","Operations or sales collect and sign Delivery Note; install at client","Trial lasts 48 hours unless management allows more","End: remove equipment; copies to store (write-on) and back office (contract system); extend or end in ABS"],ol:1,O:["Trial delivered and retrieved","Contract system updated"],C:["Client","Sales rep"]}
+  ]},
+ {k:"table",title:"D4 Delivered product retention: storekeeper action by scenario",tag:"Rules",
+  note:"Apply the action, then write on in ABS.",
+  head:[["Scenario",""],["Storekeeper action",""]],
+  rows:[
+  ["1 Not collected by operations (pest, hygiene)","After 2 days from the email date, return to stock and write on in ABS. Note the original email date and department (Pest / Hygiene / Bird)."],
+  ["2 Partly collected (bird, fumigation)","Amend the delivery note at once for the quantity delivered; write on the difference in ABS."],
+  ["3 Delivered to client, then returned to store (hygiene)","Inform supervisor or manager by email; write on 2 working days after receipt; note the return reasons."],
+  ["4 Used at client, unused part returned (hygiene disinfection)","Write on at receipt; note the reasons."],
+  ["5 Surplus received from suppliers","Write on at receipt; note surplus with stock code."],
+  ["6 Instruction from managers: product used at client, then returned","Write on at receipt; create a stock code first if none exists."]
+  ]}
+ ]},
+
+{id:"fleet",no:"04",name:"Fleet",
+ tagline:"Vehicle set-up, accident handling, cost and branding monitoring.",
+ intro:"Fleet officer responsibilities: vehicle and driver set-up, the accident rule, claim files, cost per vehicle, branding and damaged box monitoring.",
+ blocks:[
+ {k:"basis",x:"Basis: Fleet Officer role, Procedure in Case of Accident, and notes on cost, brand and box monitoring."},
+ {k:"sipoc",title:"Fleet management SIPOC",tag:"SIPOC",
+  rows:[{nm:"Overview",
+   S:["Drivers and riders","Other party in the accident","Police station","Section head (SH)","Repair garages and maintenance providers","Branding and box suppliers","Insurer / broker"],
+   I:["Accident details and police statement of facts","Insurance claim form, licence, horse power and insurance certificate copies, photos","Repair and maintenance invoices","Replacement cost when a vehicle is grounded","List of 2-wheel and 4-wheel vehicles","Damaged box reports"],
+   P:["F1 Vehicle and driver set-up","F2 Accident triage","F3 Agreed statement of facts","F4 Police route","F5 Office-level claim file and submission","F6 Vehicle exit","F7 Cost per vehicle monitoring","F8 Branding monitoring, 4 wheels","F9 Damaged 2-wheel box replacement"],
+   O:["Route decision and statements of facts","Complete claim file","Cost per vehicle, 2 wheel and 4 wheel","Grounded vehicle log","Brand register","Box register: repaired or new, branded","Fleet register"],
+   C:["Insurer","Management","Drivers and riders","Section head","Finance"]}]},
+ {k:"rules",title:"Accident rule: agreed statement or police",tag:"Rule",
+  left:{h:"Use the Agreed Statement of Facts (Constat à l'amiable) when",items:["Only 2 vehicles are involved in the road accident","Both parties agree to fill the form"]},
+  right:{h:"Do NOT use it. The driver calls the police when",items:["More than 2 vehicles; one or both drivers under alcohol or drugs","Casualties (slight injuries, serious or fatal)","Damage to structure or property other than vehicles (e.g. handrail, animal, oil leakage)","A state-owned vehicle is involved"]},
+  call:"<b>Any accident should be reported to the police station within 1 hour</b> in the second case."},
+ {k:"flow",title:"Procedure in case of accident",tag:"Flow",
+  note:"Lanes: Driver, Police, Fleet officer (office), MD, Broker / Insurer.",
+  nodes:[
+   {o:"Driver",x:"Accident occurs",start:1},
+   {d:1,x:"Police case?",y:"Police called for assistance",n:"Both drivers fill the agreed statement of facts (Constat à l'amiable)"},
+   {o:"Driver / Police",x:"Police called for assistance; accident reported within 1 hour"},
+   {o:"Police",x:"Police statement of facts: alcohol test and OB number"},
+   {o:"Driver",x:"Driver completes the insurance claim form"},
+   {o:"Section head",x:"SH acknowledges the claim form after the driver"},
+   {o:"Fleet officer (office)",x:"Compile file: statement, claim form, licence, horse power, insurance certificate, photos"},
+   {d:1,x:"File complete?",y:"Submit to insurer and record in fleet log",n:"Return to compile file"},
+   {o:"Fleet officer (office)",x:"Submit to insurer and record in fleet log"},
+   {o:"Broker / Insurer",x:"Insurer assesses the claim",end:1}
+  ]},
+ {k:"sipoc",title:"Fleet SIPOC by process",tag:"SIPOC",
+  rows:[
+  {nm:"Vehicle and driver set-up",code:"F1",S:["Management","Driver","Insurer"],I:["Vehicle details","Driving licence","Insurance certificate"],P:["Assign vehicle to driver","Copy licence; check insurance valid","Brief driver on accident procedure","Record in fleet register"],ol:1,O:["Fleet register entry","Driver briefed"],C:["Driver","Management"]},
+  {nm:"Accident triage",code:"F2",S:["Driver","Other party"],I:["Accident details","Number of vehicles","Driver condition, casualties, damage"],P:["Driver assesses the scene","Check the police-case rule","Choose route: agreed statement or police"],ol:1,O:["Route decision"],C:["Driver","Fleet officer"]},
+  {nm:"Agreed statement of facts",code:"F3",S:["Both drivers"],I:["Only 2 vehicles","Both parties agree"],P:["Both drivers fill the Constat à l'amiable","Each keeps a copy; form goes to office"],ol:1,O:["Agreed statement of facts"],C:["Fleet officer","Insurer"]},
+  {nm:"Police route",code:"F4",S:["Driver","Police station"],I:["Police assistance request","Accident facts"],P:["Driver calls police for assistance","Report to police within 1 hour","Police statement: alcohol test, OB number","Driver brings statement to office"],ol:1,O:["Police statement of facts with alcohol test and OB number"],C:["Fleet officer","Insurer"]},
+  {nm:"Office-level claim file",code:"F5",S:["Driver","SH","Fleet officer"],I:["Statement of facts","Claim form","Licence, horse power, insurance copies","Photos"],P:["Driver completes the claim form","SH acknowledges after the driver","Fleet officer compiles file; checks complete","Submit to insurer; follow up and record"],ol:1,O:["Complete claim file","Claim record"],C:["Insurer","Management","Driver"]},
+  {nm:"Vehicle exit",code:"F6",S:["Management","Driver"],I:["Return or disposal decision"],P:["Notify fleet officer; collect keys and documents","Cancel or transfer insurance","Update fleet register"],ol:1,O:["Vehicle returned or disposed"],C:["Management","Insurer"]},
+  {nm:"Cost per vehicle",code:"F7",S:["Repair garages","Maintenance providers","Replacement source"],I:["Repair invoices","Maintenance invoices","Replacement cost when grounded"],P:["Record each cost against its vehicle","Split by 2 wheel and 4 wheel","Consolidate cost per vehicle","If grounded: arrange replacement, record its cost","Report cost per vehicle"],ol:1,O:["Cost per vehicle, 2 wheel","Cost per vehicle, 4 wheel","Grounded vehicle log"],C:["Management","Finance","BU managers"]},
+  {nm:"Branding, 4 wheels",code:"F8",S:["Fleet officer","Branding supplier","Drivers"],I:["Vehicle list by 2 or 4 wheel","List of 4-wheel vehicles","Branding standard"],P:["List 4-wheel vehicles and brand status","Inspect branding on each vehicle","Flag missing or damaged branding","Order branding or re-branding","Update brand register"],ol:1,O:["Brand register","Branding orders"],C:["Management","BU managers"]},
+  {nm:"Damaged 2-wheel box",code:"F9",S:["Riders","Box supplier","Branding supplier"],I:["Damaged box report","Box register"],P:["Rider reports damaged box","Fleet officer logs and inspects it","Repairable: send for repair, returns branded","Not repairable: order new box, needs branding","Fit branded box; update register and cost"],ol:1,O:["Branded box fitted","Box register","Repair or replacement cost"],C:["Riders","Management"]}
+  ]},
+ {k:"flow",title:"F7 Cost per vehicle, 2 wheel and 4 wheel",tag:"Flow",
+  nodes:[
+   {o:"Fleet officer",x:"Record repair, maintenance and replacement costs per vehicle"},
+   {o:"Fleet officer",x:"Split by 2 wheel and 4 wheel"},
+   {o:"Fleet officer + Finance",x:"Consolidate cost per vehicle with the assistance of finance department"},
+   {d:1,x:"Vehicle grounded?",y:"Arrange replacement vehicle; record its cost",n:"Report cost per vehicle to management"},
+   {o:"Fleet officer",x:"Arrange replacement vehicle; record its cost"},
+   {o:"Fleet officer",x:"Report cost per vehicle to management",end:1}
+  ]},
+ {k:"flow",title:"F8 Branding monitoring, 4 wheels",tag:"Flow",
+  nodes:[
+   {o:"Fleet officer",x:"List 4-wheel vehicles and brand status"},
+   {o:"Fleet officer",x:"Inspect branding on each vehicle"},
+   {d:1,x:"Branding correct and intact?",y:"Update brand register",n:"Order branding or re-branding"},
+   {o:"Fleet officer",x:"Order branding or re-branding"},
+   {o:"Fleet officer",x:"Update brand register"},
+   {o:"Fleet officer",x:"Report brand status to management",end:1}
+  ]},
+ {k:"flow",title:"F9 Damaged 2-wheel box",tag:"Flow",
+  nodes:[
+   {o:"Rider",x:"Reports damaged box"},
+   {o:"Fleet officer",x:"Log and inspect the box"},
+   {d:1,x:"Repairable?",y:"Send for repair; returns as repaired branded box",n:"Order new box; it needs branding"},
+   {o:"Fleet officer",x:"Send for repair, or order new box and brand it"},
+   {o:"Fleet officer",x:"Fit branded box; update box register and cost",end:1}
+  ]}
+ ]}
+];
+
+/* ============================ RENDER ============================ */
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const li=a=>a.map(t=>`<li>${t}</li>`).join("");
+
+function sipoc(b){
+  const named=b.rows.length>1||b.rows[0].nm!=="Overview";
+  const head=`<div class="sipoc-head${named?" named":""}">${named?"<div></div>":""}<div><b>S</b>Suppliers</div><div><b>I</b>Inputs</div><div><b>P</b>Process</div><div><b>O</b>Outputs</div><div><b>C</b>Customers</div></div>`;
+  const rows=b.rows.map(r=>`<div class="sipoc-row${named?" named":""}">`+
+    (named?`<div class="nm">${r.code?`<em>${r.code}</em>`:""}${r.nm}</div>`:"")+
+    `<div><h5>Suppliers</h5><ul>${li(r.S)}</ul></div>`+
+    `<div><h5>Inputs</h5><ul>${li(r.I)}</ul></div>`+
+    `<div><h5>Process</h5>${r.ol?`<ol>${li(r.P)}</ol>`:`<ul>${li(r.P)}</ul>`}</div>`+
+    `<div><h5>Outputs</h5><ul>${li(r.O)}</ul></div>`+
+    `<div><h5>Customers</h5><ul>${li(r.C)}</ul></div></div>`).join("");
+  return `<div class="sipoc">${head}${rows}</div>`;
+}
+function flow(b){
+  let n=0;
+  const items=b.nodes.map(x=>{
+    if(x.d){n++;return `<li class="node dec"><span class="who">Decision</span><span class="n">${n}</span><span class="x">${x.x}</span><div class="br"><div class="y"><b>Yes</b><span>${x.y}</span></div><div class="no"><b>No</b><span>${x.n}</span></div></div></li>`}
+    if(x.start||x.end){return `<li class="node end"><span class="who">${x.o}</span>${x.x}</li>`}
+    n++;return `<li class="node"><span class="who">${x.o}</span><span class="n">${n}</span>${x.x}</li>`;
+  }).join("");
+  return `<div class="legend"><span><i class="l-step"></i>Step</span><span><i class="l-dec"></i>Decision</span><span><i class="l-end"></i>Start / end</span></div><ol class="flow">${items}</ol>`;
+}
+function table(b){
+  const th=b.head.map(h=>`<th>${h[0]}${h[1]?`<small>${h[1]}</small>`:""}</th>`).join("");
+  const tr=b.rows.map(r=>`<tr>${r.map((c,i)=>`<td${!i?"":""}>${c||"&ndash;"}</td>`).join("")}</tr>`).join("");
+  return `<div class="tbl${b.wide?" wide":""}"><table><thead><tr>${th}</tr></thead><tbody>${tr}</tbody></table></div>`;
+}
+function phases(b){
+  const g=b.itFlip;
+  return `<div class="phases">${b.items.map(i=>g
+    ?`<div class="phase${i[0]!=="Live"?" grp":""}"><b>${i[1]}</b><strong>${i[2]}</strong><span>${i[0]}</span></div>`
+    :`<div class="phase"><b>${i[0]}</b><strong>${i[1]}</strong><span>${i[2]}</span></div>`).join("")}</div>`;
+}
+function rules(b){
+  return `<div class="rules"><div class="rule"><h4>${b.left.h}</h4><ul>${li(b.left.items)}</ul></div><div class="rule bad"><h4>${b.right.h}</h4><ul>${li(b.right.items)}</ul></div></div><div class="callout">${b.call}</div>`;
+}
+const R={sipoc,flow,table,phases,rules};
+
+let open=true, counts={flow:0,sipoc:0,rows:0};
+const deptHtml=DEPTS.map((d,di)=>{
+  const blocks=d.blocks.map((b,i)=>{
+    if(b.k==="basis")return `<div class="basis">${b.x}</div>`;
+    if(b.k==="flow")counts.flow++;
+    if(b.k==="sipoc"){counts.sipoc++;counts.rows+=b.rows.length}
+    const id=`${d.id}-${i}`;
+    return `<details class="blk" id="${id}"${open?" open":""}><summary>${b.title}<span class="tag">${b.tag}</span></summary><div class="blk-body">${b.note?`<p class="note">${b.note}</p>`:""}${R[b.k](b)}</div></details>`;
+  });
+  open=true;
+  const pills=d.blocks.filter(b=>b.title).map((b,i)=>`<a class="pill" href="#${d.id}-${d.blocks.indexOf(b)}" data-open>${b.title}</a>`).join("");
+  return `<section class="band${di%2?" grey":""}" id="${d.id}" data-dept>
+    <div class="wrap">
+      <div class="dept-head reveal"><div class="sec-head"><div class="eyebrow">${d.name} department</div><h2>${d.name} <b>process flows</b></h2><p>${d.intro}</p></div><div class="dept-no" aria-hidden="true">${d.no}</div></div>
+      <div class="pills reveal">${pills}</div>
+      <div>${blocks.join("")}</div>
+    </div></section>`;
+}).join("");
+$("#depts").innerHTML=deptHtml;
+
+$("#cards").innerHTML=DEPTS.map(d=>{
+  const t=d.blocks.filter(b=>b.title);
+  return `<a class="card reveal" href="#${d.id}"><span class="no">${d.no}</span><h3>${d.name}</h3><p>${d.tagline}</p><ul>${t.slice(0,4).map(b=>`<li>${b.title}</li>`).join("")}${t.length>4?`<li>+ ${t.length-4} more</li>`:""}</ul><span class="more">View flows</span></a>`;
+}).join("");
+
+$("#stats").innerHTML=[[DEPTS.length,"Departments"],[counts.flow,"Process flows"],[counts.rows,"SIPOC process rows"],[DEPTS.reduce((a,d)=>a+d.blocks.filter(b=>b.k==="table").length,0),"Matrices and rule tables"]]
+  .map(([n,l])=>`<div><b>${n}</b><span>${l}</span></div>`).join("");
+
+/* ============================ BEHAVIOUR ============================ */
+const nav=$("#nav"), burger=$(".burger");
+burger.onclick=()=>{const o=nav.classList.toggle("open");burger.setAttribute("aria-expanded",o)};
+$$("#nav a").forEach(a=>a.onclick=()=>{nav.classList.remove("open");burger.setAttribute("aria-expanded",false)});
+
+let expanded=true;
+$("#expand").onclick=e=>{expanded=!expanded;$$("details.blk").forEach(d=>d.open=expanded);e.target.textContent=expanded?"Collapse all":"Expand all"};
+$("#expand").textContent="Collapse all";
+
+// open the target block when a pill is clicked
+$$("[data-open]").forEach(a=>a.addEventListener("click",()=>{const d=$(a.getAttribute("href"));if(d)d.open=true}));
+
+// scroll spy
+const links=$$("#nav a");
+const spy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(l=>l.classList.toggle("on",l.getAttribute("href")==="#"+e.target.id))}),{rootMargin:"-40% 0px -55% 0px"});
+$$("[data-dept]").forEach(s=>spy.observe(s));
+
+// reveal on scroll
+if("IntersectionObserver" in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.05});
+  $$(".reveal").forEach(el=>io.observe(el));
+}else $$(".reveal").forEach(el=>el.classList.add("in"));
+
+const tt=$("#totop");
+addEventListener("scroll",()=>tt.classList.toggle("show",scrollY>700),{passive:true});
+tt.onclick=()=>scrollTo({top:0});
+</script>
+</body>
+</html>
